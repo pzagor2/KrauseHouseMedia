@@ -1,0 +1,11 @@
+.logoSmall {
+  @apply w-24;
+}
+
+.logoMedium {
+  @apply w-48;
+}
+
+.logoLarge {
+  @apply w-64;
+}
