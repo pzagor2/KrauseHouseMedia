@@ -6,11 +6,13 @@ import size from "./types/size";
 
 export default function App() {
   return (
-    <main className="kh-gradient h-screen w-screen overflow-hidden">
-      <Logo logoSize={size.MEDIUM} />
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
+    <main className="kh-gradient h-screen w-screen">
+      <div className="w-full h-full overflow-scroll px-24">
+        <Logo logoSize={size.MEDIUM} />
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </div>
     </main>
   );
 }

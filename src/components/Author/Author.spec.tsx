@@ -51,11 +51,11 @@ describe("Author", () => {
 
   it("should render read time when provided", () => {
     // arrange
-    render(<Author authorId="" readTime={10} />);
+    render(<Author authorId="" readTime="10 min read" />);
 
     // act
     const postInfo = screen.queryByTestId("post-info");
-    const readTime = screen.getByText("10 min read", { exact: false });
+    const readTime = screen.getByText("10 min read", { exact: true });
 
     // assert
     expect(postInfo).toBeInTheDocument();
@@ -64,7 +64,9 @@ describe("Author", () => {
 
   it("should render read time and date together", () => {
     // arrange
-    render(<Author authorId="" date={new Date(2022, 0, 10)} readTime={10} />);
+    render(
+      <Author authorId="" date={new Date(2022, 0, 10)} readTime="10 min read" />
+    );
 
     // act
     const postInfo = screen.queryByTestId("post-info");
