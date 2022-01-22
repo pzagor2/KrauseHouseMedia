@@ -2,7 +2,7 @@ import Card from "@/components/Card/Card";
 
 export default function Home() {
   return (
-    <div>
+    <div data-testid="home">
       <Card>Hey</Card>
     </div>
   );
