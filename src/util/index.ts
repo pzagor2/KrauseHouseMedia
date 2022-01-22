@@ -1,3 +1,4 @@
+import { getMonthFromIndex } from "./date";
 import { isUndefinedOrWhitespace } from "./string";
 
-export { isUndefinedOrWhitespace };
+export { getMonthFromIndex, isUndefinedOrWhitespace };

@@ -1,9 +1,9 @@
-import Card from "@/components/Card/Card";
+import Author from "@/components/Author/Author";
 
 export default function Home() {
   return (
     <div data-testid="home">
-      <Card>Hey</Card>
+      <Author authorId="" date={new Date(2022, 0, 10)} readTime={10} />
     </div>
   );
 }
