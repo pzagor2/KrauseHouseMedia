@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 
 import Currency from "@/types/currency";
-import Result from "@/types/result";
 import Error from "@/types/error";
+import Result from "@/types/result";
 
 const getUSD = async (
   amount: number,
