@@ -10,7 +10,7 @@ interface ContentCardProps {
 export default function ContentCard({ content }: ContentCardProps) {
   return (
     <div data-testid="content-card">
-      <Card className="flex-1 overflow-hidden shadow-lg">
+      <Card className="flex-1 overflow-hidden shadow-lg my-4 min-w-96">
         <div className="h-50 overflow-hidden">
           <img
             src={content.imageUrl}
@@ -19,7 +19,7 @@ export default function ContentCard({ content }: ContentCardProps) {
             data-testid="image"
           />
         </div>
-        <div className="p-6 h-84 flex flex-col justify-between">
+        <div className="p-6 min-h-84 flex flex-col justify-between gap-y-6">
           <div className="flex flex-col gap-y-2">
             <div className="capitalize text-sm opacity-50">
               {content.contentType}

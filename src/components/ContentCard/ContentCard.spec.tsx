@@ -5,6 +5,7 @@ import Content from "@/types/content";
 import ContentCard from "./ContentCard";
 
 const content = {
+  id: "1",
   title: "The best way to predict the future is to create it.",
   imageUrl:
     "https://images.pexels.com/photos/1752757/pexels-photo-1752757.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
