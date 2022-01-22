@@ -1,6 +1,7 @@
 import ContentType from "./content-type";
 
 type Content = {
+  id: string;
   title: string;
   contentType: ContentType;
   authorId?: string;

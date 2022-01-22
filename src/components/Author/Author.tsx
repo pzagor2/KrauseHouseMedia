@@ -29,7 +29,7 @@ export default function Author({ date, readTime }: AuthorProps) {
   }, [date, readTime]);
 
   return (
-    <div data-testid="author" className="flex gap-x-2">
+    <div data-testid="author" className="flex gap-x-3">
       <img
         className="rounded-full w-10 h-10"
         data-testid="author-image"

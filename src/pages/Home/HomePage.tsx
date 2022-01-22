@@ -1,0 +1,31 @@
+import { Link } from "react-router-dom";
+
+import ContentCard from "@/components/ContentCard/ContentCard";
+import useContentList from "@/hooks/use-content-list";
+
+export default function HomePage() {
+  const { contentList, isLoading, error } = useContentList();
+
+  return (
+    <div data-testid="home-page">
+      {isLoading && !error && <div data-testid="loading">Loading...</div>}
+      {error && <div data-testid="error">Error: {error.message}</div>}
+      {(!contentList || (contentList.length == 0 && !error)) && (
+        <div data-testid="error">Error: No articles found</div>
+      )}
+      {!isLoading && !error && contentList && (
+        <div className="flex flex-row w-full grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3">
+          {contentList.map(content => (
+            <Link
+              to={`/${content.id}`}
+              className="no-underline decoration-current"
+              key={content.id}
+            >
+              <ContentCard content={content} />
+            </Link>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}

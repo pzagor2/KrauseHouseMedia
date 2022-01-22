@@ -1,16 +1,20 @@
-import { Route, Routes } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
 
 import Logo from "./components/Logo/Logo";
-import Home from "./pages/Home/Home";
+import ContentPage from "./pages/Content/ContentPage";
+import HomePage from "./pages/Home/HomePage";
 import size from "./types/size";
 
 export default function App() {
   return (
     <main className="kh-gradient h-screen w-screen">
-      <div className="w-full h-full overflow-scroll px-24">
-        <Logo logoSize={size.MEDIUM} />
+      <div className="w-full h-full overflow-scroll px-6 md:px-24 pb-24">
+        <Link to="/">
+          <Logo logoSize={size.MEDIUM} />
+        </Link>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/:id" element={<ContentPage />} />
         </Routes>
       </div>
     </main>
