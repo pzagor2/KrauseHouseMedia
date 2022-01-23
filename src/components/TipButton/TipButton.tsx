@@ -1,7 +1,7 @@
 import { useWeb3 } from "@3rdweb/hooks";
 
 import Button from "@/components/Button/Button";
-import sendTip from "@/transactions/sendTip";
+import sendTip from "@/transactions/SendTip/sendTip";
 import Tip from "@/types/tip";
 
 interface TipButtonProps {

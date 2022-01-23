@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import ShowOnScroll from "@/Animations/ShowOnScroll/ShowOnScroll";
+import ShowOnScroll from "@/animations/ShowOnScroll/ShowOnScroll";
 import Article from "@/components/Article/Article";
 import Author from "@/components/Author/Author";
 import Card from "@/components/Card/Card";

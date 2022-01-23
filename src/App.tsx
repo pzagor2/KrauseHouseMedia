@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import HeaderLayout from "./layouts/HeaderLayout/HeaderLayout";
 import ContentPage from "./pages/Content/ContentPage";
 import HomePage from "./pages/Home/HomePage";
-import ThirdWebProvider from "./Providers/ThirdWebProvider";
+import ThirdWebProvider from "./providers/ThirdWebProvider";
 
 export default function App() {
   return (
