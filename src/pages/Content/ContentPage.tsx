@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
+import ShowOnScroll from "@/Animations/ShowOnScroll/ShowOnScroll";
 import Article from "@/components/Article/Article";
 import Author from "@/components/Author/Author";
 import Card from "@/components/Card/Card";
+import TipButton from "@/components/TipButton/TipButton";
 import useContentList from "@/hooks/use-content-list";
 import Content from "@/types/content";
 import ContentType from "@/types/content-type";
@@ -45,8 +47,8 @@ export default function ContentPage() {
               className="w-full h-52 lg:h-96 object-cover"
             />
           </div>
-          <div className="mx-12 lg:mx-24 2xl:mx-72">
-            <div className="flex flex-col gap-y-4 my-12 md:my-24">
+          <div className="mx-12 lg:mx-24 2xl:mx-72 transform -translate-y-4">
+            <div className="flex flex-col gap-y-4 mb-12 md:mb-24 ">
               {content?.authorId && (
                 <Author
                   authorId={content.authorId}
@@ -64,6 +66,9 @@ export default function ContentPage() {
             </div>
             <div className="my-12 md:my-24">{getContent()}</div>
           </div>
+          <ShowOnScroll scrollPercentToShowAt={0.2}>
+            <TipButton className="absolute mx-auto left-0 right-0 bottom-4" />
+          </ShowOnScroll>
         </Card>
       )}
     </div>

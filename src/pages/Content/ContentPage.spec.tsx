@@ -2,6 +2,7 @@ import { render, screen } from "@testing-library/react";
 
 import { useArticleResult } from "@/hooks/use-article";
 import { useContentListResult } from "@/hooks/use-content-list";
+import ThirdWebProvider from "@/Providers/ThirdWebProvider";
 import sampleArticle from "@/sample-data/sample-article";
 import sampleContent from "@/sample-data/sample-content-list";
 import Content from "@/types/content";
@@ -39,7 +40,11 @@ jest.mock("@/hooks/use-article", () => {
 describe("ContentPage", () => {
   it("should render content page", () => {
     // arrange
-    render(<ContentPage />);
+    render(
+      <ThirdWebProvider>
+        <ContentPage />
+      </ThirdWebProvider>
+    );
 
     // act
     const contentPage = screen.getByTestId("content-page");
@@ -64,7 +69,11 @@ describe("ContentPage", () => {
     routeId = "42";
 
     // arrange
-    render(<ContentPage />);
+    render(
+      <ThirdWebProvider>
+        <ContentPage />
+      </ThirdWebProvider>
+    );
 
     // act
     const title = screen.getByText("Content 42");
@@ -88,7 +97,11 @@ describe("ContentPage", () => {
     } as useContentListResult;
 
     // arrange
-    render(<ContentPage />);
+    render(
+      <ThirdWebProvider>
+        <ContentPage />
+      </ThirdWebProvider>
+    );
 
     // act
     const error = screen.getByTestId("error");
@@ -112,7 +125,11 @@ describe("ContentPage", () => {
     } as useContentListResult;
 
     // arrange
-    render(<ContentPage />);
+    render(
+      <ThirdWebProvider>
+        <ContentPage />
+      </ThirdWebProvider>
+    );
 
     // act
     const error = screen.getByTestId("error");
@@ -136,10 +153,40 @@ describe("ContentPage", () => {
       error: undefined,
     } as useContentListResult;
 
-    render(<ContentPage />);
+    render(
+      <ThirdWebProvider>
+        <ContentPage />
+      </ThirdWebProvider>
+    );
 
     // act
     const article = screen.getByTestId("article");
     expect(article).toBeInTheDocument();
+  });
+
+  it("should render tip button", () => {
+    const content = {
+      id: "42",
+      title: "Content 42",
+      description: "Description 42",
+      imageUrl: "https://image-url-42.com",
+      contentType: "article" as ContentType,
+      articleId: "42",
+    };
+    contentListResult = {
+      contentList: [content],
+      isLoading: false,
+      error: undefined,
+    } as useContentListResult;
+
+    render(
+      <ThirdWebProvider>
+        <ContentPage />
+      </ThirdWebProvider>
+    );
+
+    // act
+    const tip = screen.getByTestId("tip-button");
+    expect(tip).toBeInTheDocument();
   });
 });
