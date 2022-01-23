@@ -12,6 +12,8 @@ const sampleContent: Content[] = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     readTime: "5 min read",
     date: new Date(2022, 0, 22),
+    authorId: "1",
+    articleId: "1",
   },
   {
     id: "2",
@@ -23,6 +25,8 @@ const sampleContent: Content[] = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     readTime: "5 min read",
     date: new Date(2022, 0, 22),
+    authorId: "1",
+    articleId: "1",
   },
   {
     id: "3",
@@ -35,6 +39,7 @@ const sampleContent: Content[] = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     readTime: "50 min listen",
     date: new Date(2022, 0, 22),
+    authorId: "1",
   },
 ];
 

@@ -17,9 +17,9 @@ export default function HomePage() {
         <div className="flex flex-row w-full grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3">
           {contentList.map(content => (
             <Link
+              key={content.id}
               to={`/${content.id}`}
               className="no-underline decoration-current"
-              key={content.id}
             >
               <ContentCard content={content} />
             </Link>

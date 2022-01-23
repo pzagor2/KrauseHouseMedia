@@ -8,9 +8,10 @@ interface AuthorProps {
   authorId: string;
   date?: Date;
   readTime?: string;
+  className?: string;
 }
 
-export default function Author({ date, readTime }: AuthorProps) {
+export default function Author({ date, readTime, className }: AuthorProps) {
   const [postInfo, setPostInfo] = useState<string | undefined>();
 
   useMemo(() => {
@@ -29,7 +30,7 @@ export default function Author({ date, readTime }: AuthorProps) {
   }, [date, readTime]);
 
   return (
-    <div data-testid="author" className="flex gap-x-3">
+    <div data-testid="author" className={`flex gap-x-3 ${className}`}>
       <img
         className="rounded-full w-10 h-10"
         data-testid="author-image"

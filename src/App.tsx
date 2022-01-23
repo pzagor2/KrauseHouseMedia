@@ -9,9 +9,11 @@ export default function App() {
   return (
     <main className="kh-gradient h-screen w-screen">
       <div className="w-full h-full overflow-scroll px-6 md:px-24 pb-24">
-        <Link to="/">
-          <Logo logoSize={size.MEDIUM} />
-        </Link>
+        <div className="inline-block">
+          <Link to="/">
+            <Logo logoSize={size.MEDIUM} />
+          </Link>
+        </div>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/:id" element={<ContentPage />} />
