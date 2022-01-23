@@ -10,7 +10,10 @@ interface HeaderLayoutProps {
 
 export default function HeaderLayout({ children }: HeaderLayoutProps) {
   return (
-    <div className="w-full h-full overflow-scroll px-6 md:px-24 pb-24">
+    <div
+      id="layout"
+      className="w-full h-full overflow-y-scroll px-6 md:px-24 pb-24"
+    >
       <div className="flex justify-between">
         <div className="inline-block">
           <Link to="/">

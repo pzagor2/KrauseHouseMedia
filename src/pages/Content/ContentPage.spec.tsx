@@ -142,4 +142,26 @@ describe("ContentPage", () => {
     const article = screen.getByTestId("article");
     expect(article).toBeInTheDocument();
   });
+
+  it("should render tip button", () => {
+    const content = {
+      id: "42",
+      title: "Content 42",
+      description: "Description 42",
+      imageUrl: "https://image-url-42.com",
+      contentType: "article" as ContentType,
+      articleId: "42",
+    };
+    contentListResult = {
+      contentList: [content],
+      isLoading: false,
+      error: undefined,
+    } as useContentListResult;
+
+    render(<ContentPage />);
+
+    // act
+    const tip = screen.getByTestId("tip-button");
+    expect(tip).toBeInTheDocument();
+  });
 });

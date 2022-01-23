@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
+import ShowOnScroll from "@/Animations/ShowOnScroll/ShowOnScroll";
 import Article from "@/components/Article/Article";
 import Author from "@/components/Author/Author";
 import Card from "@/components/Card/Card";
+import TipButton from "@/components/TipButton/TipButton";
 import useContentList from "@/hooks/use-content-list";
 import Content from "@/types/content";
 import ContentType from "@/types/content-type";
@@ -64,6 +66,9 @@ export default function ContentPage() {
             </div>
             <div className="my-12 md:my-24">{getContent()}</div>
           </div>
+          <ShowOnScroll>
+            <TipButton className="absolute mx-auto left-0 right-0 bottom-4" />
+          </ShowOnScroll>
         </Card>
       )}
     </div>
