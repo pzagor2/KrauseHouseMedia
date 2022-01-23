@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 
-import ThirdWebProvider from "@/Providers/ThirdWebProvider";
+import ThirdWebProvider from "@/providers/ThirdWebProvider";
 
 import TipButton from "./TipButton";
 

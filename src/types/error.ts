@@ -1,5 +1,5 @@
-type Error = {
+interface Error {
   message: string;
-};
+}
 
 export default Error;

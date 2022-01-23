@@ -7044,6 +7044,12 @@ minimist@1.2.5, minimist@^1.2.0, minimist@^1.2.5:
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.5.tgz#67d66014b66a6a8aaa0c083c5fd58df4e4e97602"
   integrity sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==
 
+mocktract@matryx/mocktract-ethers.js:
+  version "1.0.0"
+  resolved "https://codeload.github.com/matryx/mocktract-ethers.js/tar.gz/81eafd8ef18e896a211c207e6623a10e79ccbca4"
+  dependencies:
+    bn.js "^4.11.8"
+
 ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"

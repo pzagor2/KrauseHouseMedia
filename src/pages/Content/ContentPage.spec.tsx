@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 
 import { useArticleResult } from "@/hooks/use-article";
 import { useContentListResult } from "@/hooks/use-content-list";
-import ThirdWebProvider from "@/Providers/ThirdWebProvider";
+import ThirdWebProvider from "@/providers/ThirdWebProvider";
 import sampleArticle from "@/sample-data/sample-article";
 import sampleContent from "@/sample-data/sample-content-list";
 import Content from "@/types/content";

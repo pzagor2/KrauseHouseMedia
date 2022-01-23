@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 
-import ThirdWebProvider from "@/Providers/ThirdWebProvider";
+import ThirdWebProvider from "@/providers/ThirdWebProvider";
 
 import HeaderLayout from "./HeaderLayout";
 
