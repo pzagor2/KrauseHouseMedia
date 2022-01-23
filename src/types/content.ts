@@ -10,6 +10,7 @@ type Content = {
   description: string;
   imageUrl: string;
   tags?: string[];
+  articleId?: string;
 };
 
 export default Content;

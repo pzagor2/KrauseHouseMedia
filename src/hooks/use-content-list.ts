@@ -24,8 +24,7 @@ const useContentList = (): useContentListResult => {
   useMemo(() => {
     const fetchAccount = async () => {
       try {
-        const contentList = await getContentList();
-        setContentList(contentList);
+        setContentList(await getContentList());
       } catch (e) {
         setError({ message: "Error" });
       }
