@@ -33,3 +33,7 @@ a:active {
 .kh-gradient {
   @apply bg-gradient-to-b from-[#0F1318] to-[#2F2D8B];
 }
+
+.kh-shadow {
+  box-shadow: 0px 0px 25px 0px #ff4ee3;
+}
