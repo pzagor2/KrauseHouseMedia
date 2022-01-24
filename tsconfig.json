@@ -27,7 +27,7 @@
     "windi.config.*",
     "jest.setup.ts",
     "src/**/*",
-    "src/**/*.tsx",
-    "cypress/**/*"
+    "src/**/*.tsx"
+    // "cypress/**/*" commented until used
   ]
 }

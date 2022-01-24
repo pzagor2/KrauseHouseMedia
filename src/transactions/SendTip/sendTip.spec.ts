@@ -1,7 +1,8 @@
-import sendTip from "./sendTip";
 import MockSigner from "@/mocks/mockSigner";
-import Tip from "@/types/tip";
 import { TokenErrorType } from "@/types/errors/token-errors";
+import Tip from "@/types/tip";
+
+import sendTip from "./sendTip";
 
 // mocks
 const tip = {
