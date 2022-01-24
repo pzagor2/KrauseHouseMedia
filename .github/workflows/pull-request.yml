@@ -35,6 +35,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: yarn install --ignore-scripts
       - run: npm run typecheck && vite build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
