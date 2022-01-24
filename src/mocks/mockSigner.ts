@@ -1,9 +1,7 @@
-import { Bytes, Signer } from "ethers";
-import { Provider, TransactionRequest } from "@ethersproject/abstract-provider";
-import { Deferrable } from "ethers/lib/utils";
+import { Signer } from "ethers";
 
 class MockSigner extends Signer {
-  connect(provider: Provider) {
+  connect() {
     return this;
   }
 
@@ -13,15 +11,13 @@ class MockSigner extends Signer {
     });
   }
 
-  signMessage(message: string | Bytes): Promise<string> {
+  signMessage(): Promise<string> {
     return new Promise<string>(resolve => {
       resolve("0x0");
     });
   }
 
-  signTransaction(
-    transaction: Deferrable<TransactionRequest>
-  ): Promise<string> {
+  signTransaction(): Promise<string> {
     return new Promise<string>(resolve => {
       resolve("0x0");
     });

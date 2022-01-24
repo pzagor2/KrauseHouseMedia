@@ -1,9 +1,9 @@
 import { ethers } from "ethers";
 
-import Error from "@/types/error";
-import Tip from "@/types/tip";
 import getKrauseContract from "@/contracts/getKrauseContract";
+import Error from "@/types/error";
 import TokenError, { TokenErrorType } from "@/types/errors/token-errors";
+import Tip from "@/types/tip";
 
 const sendTip = async (tip: Tip): Promise<Error | undefined> => {
   const contract = getKrauseContract(tip.signer);
