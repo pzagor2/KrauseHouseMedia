@@ -1,3 +1,5 @@
+import { toast } from "react-toastify";
+
 import Error from "@/types/error";
 
 export enum TokenErrorType {
@@ -10,6 +12,11 @@ class TokenError implements Error {
 
   constructor(type: TokenErrorType) {
     this.message = type;
+    this.sendToast();
+  }
+
+  sendToast() {
+    toast.error(this.message);
   }
 
   toString() {

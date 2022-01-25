@@ -1,4 +1,7 @@
+import "react-toastify/dist/ReactToastify.css";
+
 import { Route, Routes } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 
 import HeaderLayout from "./layouts/HeaderLayout/HeaderLayout";
 import ContentPage from "./pages/Content/ContentPage";
@@ -14,6 +17,17 @@ export default function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/:id" element={<ContentPage />} />
           </Routes>
+          <ToastContainer
+            closeOnClick
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            position="top-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            rtl={false}
+          />
         </HeaderLayout>
       </ThirdWebProvider>
     </main>
