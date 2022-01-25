@@ -1,4 +1,4 @@
-name: "coverage"
+name: pull-request
 on:
   pull_request:
     branches:
