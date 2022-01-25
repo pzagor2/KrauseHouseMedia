@@ -66,7 +66,7 @@ export default function ContentPage() {
             </div>
             <div className="my-12 md:my-24">{getContent()}</div>
           </div>
-          <ShowOnScroll scrollPercentToShowAt={0.2}>
+          <ShowOnScroll scrollPercentToShowAt={0.1}>
             <TipButton className="absolute mx-auto left-0 right-0 bottom-4" />
           </ShowOnScroll>
         </Card>
