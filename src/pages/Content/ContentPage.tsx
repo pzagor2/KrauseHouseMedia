@@ -5,8 +5,8 @@ import ShowOnScroll from "@/animations/ShowOnScroll/ShowOnScroll";
 import Article from "@/components/Article/Article";
 import Author from "@/components/Author/Author";
 import Card from "@/components/Card/Card";
-import TipButton from "@/components/TipButton/TipButton";
 import useContentList from "@/hooks/use-content-list";
+import TipButton from "@/pages/Content/components/TipButton/TipButton";
 import Content from "@/types/content";
 import ContentType from "@/types/content-type";
 

@@ -83,6 +83,7 @@
         "jest/no-identical-title": "error",
         "jest/prefer-to-have-length": "warn",
         "jest/valid-expect": "error",
+        "jest/expect-expect": "off",
         "jest-dom/prefer-checked": "error",
         "jest-dom/prefer-enabled-disabled": "error",
         "jest-dom/prefer-required": "error",
