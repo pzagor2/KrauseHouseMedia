@@ -14,7 +14,7 @@ export default function HomePage() {
         <div data-testid="error">Error: No articles found</div>
       )}
       {!isLoading && !error && contentList && (
-        <div className="flex flex-row w-full grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3">
+        <div className="flex flex-row w-full grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-6">
           {contentList.map(content => (
             <Link
               key={content.id}

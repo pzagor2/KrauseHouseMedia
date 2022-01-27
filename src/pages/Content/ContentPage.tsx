@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import ShowOnScroll from "@/animations/ShowOnScroll/ShowOnScroll";
-import Article from "@/pages/Content/components/Article/Article";
 import Author from "@/components/Author/Author";
 import Card from "@/components/Card/Card";
 import useContentList from "@/hooks/use-content-list";
+import Article from "@/pages/Content/components/Article/Article";
+import Podcast from "@/pages/Content/components/Podcast/Podcast";
 import TipButton from "@/pages/Content/components/TipButton/TipButton";
 import Content from "@/types/content";
 import ContentType from "@/types/content-type";
@@ -23,12 +24,19 @@ export default function ContentPage() {
   }, [contentList, id]);
 
   const getContent = () => {
-    if (!content?.articleId) {
-      return <div data-testid="error">Error</div>;
-    }
     switch (content?.contentType) {
       case ContentType.ARTICLE:
-        return <Article id={content.articleId} />;
+        return content.articleId ? (
+          <Article id={content.articleId} />
+        ) : (
+          <div data-testid="error">Error</div>
+        );
+      case ContentType.PODCAST:
+        return content.podcastId ? (
+          <Podcast id={content.podcastId} />
+        ) : (
+          <div data-testid="error">Error</div>
+        );
       default:
         return <div data-testid="error">Error</div>;
     }
@@ -44,11 +52,11 @@ export default function ContentPage() {
             <img
               src={content.imageUrl}
               alt={content.title}
-              className="w-full h-52 lg:h-96 object-cover"
+              className="w-full h-52 lg:h-96 object-cover object-top"
             />
           </div>
           <div className="mx-12 lg:mx-24 2xl:mx-72 transform -translate-y-4">
-            <div className="flex flex-col gap-y-4 mb-12 md:mb-24 ">
+            <div className="flex flex-col gap-y-4 mb-12">
               {content?.authorId && (
                 <Author
                   authorId={content.authorId}
@@ -64,9 +72,9 @@ export default function ContentPage() {
                 {content.title}
               </div>
             </div>
-            <div className="my-12 md:my-24">{getContent()}</div>
+            <div className="my-12">{getContent()}</div>
           </div>
-          <ShowOnScroll scrollPercentToShowAt={0.1}>
+          <ShowOnScroll scrollPercentToShowAt={0.05}>
             <TipButton className="absolute mx-auto left-0 right-0 bottom-4" />
           </ShowOnScroll>
         </Card>
