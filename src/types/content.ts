@@ -11,6 +11,7 @@ type Content = {
   imageUrl: string;
   tags?: string[];
   articleId?: string;
+  podcastId?: string;
   seriesId?: string;
 };
 

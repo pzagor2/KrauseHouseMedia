@@ -40,6 +40,7 @@ const sampleContent: Content[] = [
     readTime: "50 min listen",
     date: new Date(2022, 0, 22),
     authorId: "1",
+    podcastId: "1",
   },
 ];
 

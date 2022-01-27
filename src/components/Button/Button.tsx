@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 interface ButtonProps {
   children: React.ReactNode;
   className?: string;
@@ -6,11 +8,14 @@ interface ButtonProps {
 
 export default function Button({ children, className, onClick }: ButtonProps) {
   return (
-    <button
-      className={`bg-purple bg-opacity-20 hover:bg-opacity-50 transition rounded-md px-4 py-2 flex items-center gap-x-2 shadow ${className}`}
+    <motion.button
+      className={`bg-purple text-white cursor-pointer bg-opacity-20 hover:bg-opacity-30 transition rounded-md px-4 py-3 flex items-center gap-x-2 shadow ${className}`}
+      whileHover={{
+        scale: 1.1,
+      }}
       onClick={onClick}
     >
       {children}
-    </button>
+    </motion.button>
   );
 }

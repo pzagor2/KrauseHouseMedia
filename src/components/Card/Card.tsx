@@ -6,7 +6,7 @@ interface CardProps {
 export default function Card({ children, className }: CardProps) {
   return (
     <div
-      className={`bg-purple bg-opacity-20 rounded-2xl min-h-24 m-2 shadow ${className}`}
+      className={`bg-purple bg-opacity-20 rounded-2xl min-h-24 shadow ${className}`}
       data-testid="card"
     >
       {children}
