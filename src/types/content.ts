@@ -11,6 +11,7 @@ type Content = {
   imageUrl: string;
   tags?: string[];
   articleId?: string;
+  seriesId?: string;
 };
 
 export default Content;

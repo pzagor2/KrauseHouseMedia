@@ -1,6 +1,4 @@
-import Content from "./content";
-
-type Article = Content & {
+type Article = {
   text: string;
 };
 

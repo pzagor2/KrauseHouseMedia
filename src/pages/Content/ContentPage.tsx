@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import ShowOnScroll from "@/animations/ShowOnScroll/ShowOnScroll";
-import Article from "@/components/Article/Article";
+import Article from "@/pages/Content/components/Article/Article";
 import Author from "@/components/Author/Author";
 import Card from "@/components/Card/Card";
 import useContentList from "@/hooks/use-content-list";
