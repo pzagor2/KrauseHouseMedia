@@ -52,7 +52,7 @@ export default function ContentPage() {
             <img
               src={content.imageUrl}
               alt={content.title}
-              className="w-full h-52 lg:h-96 object-cover"
+              className="w-full h-52 lg:h-96 object-cover object-top"
             />
           </div>
           <div className="mx-12 lg:mx-24 2xl:mx-72 transform -translate-y-4">
