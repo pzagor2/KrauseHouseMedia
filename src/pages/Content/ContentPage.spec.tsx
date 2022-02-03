@@ -1,9 +1,11 @@
 import { render, screen } from "@testing-library/react";
 
 import { useArticleResult } from "@/hooks/use-article";
+import { useAuthorResult } from "@/hooks/use-author";
 import { useContentListResult } from "@/hooks/use-content-list";
 import ThirdWebProvider from "@/providers/ThirdWebProvider";
 import sampleArticle from "@/sample-data/sample-article";
+import sampleAuthor from "@/sample-data/sample-author";
 import sampleContent from "@/sample-data/sample-content-list";
 import Content from "@/types/content";
 import ContentType from "@/types/content-type";
@@ -18,6 +20,15 @@ jest.mock("react-router-dom", () => ({
   }),
   useRouteMatch: () => ({ url: "/company/company-id1/team/team-id1" }),
 }));
+
+const authorResult = {
+  author: sampleAuthor,
+  isLoading: false,
+  error: undefined,
+} as useAuthorResult;
+jest.mock("@/hooks/use-author", () => {
+  return jest.fn(() => authorResult);
+});
 
 let contentListResult = {
   contentList: sampleContent as Content[],
@@ -172,6 +183,7 @@ describe("ContentPage", () => {
       imageUrl: "https://image-url-42.com",
       contentType: "article" as ContentType,
       articleId: "42",
+      authorId: "42",
     };
     contentListResult = {
       contentList: [content],

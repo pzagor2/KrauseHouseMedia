@@ -1,6 +1,8 @@
 type Author = {
+  id: string;
   name: string;
-  image: string;
+  ethAddress: string;
+  avatarUrl: string;
 };
 
 export default Author;

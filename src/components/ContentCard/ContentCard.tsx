@@ -44,7 +44,13 @@ export default function ContentCard({ content }: ContentCardProps) {
               {content.description}
             </div>
           </div>
-          <Author authorId="" readTime={content.readTime} date={content.date} />
+          {content.authorId && (
+            <Author
+              authorId={content.authorId}
+              readTime={content.readTime}
+              date={content.date}
+            />
+          )}
         </div>
       </Card>
     </motion.div>

@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 
-import author from "@/assets/author.png";
+import useAuthor from "@/hooks/use-author";
 import Author from "@/types/author";
 import { dateObjectToString } from "@/util/date";
 
@@ -11,7 +11,13 @@ interface AuthorProps {
   className?: string;
 }
 
-export default function Author({ date, readTime, className }: AuthorProps) {
+export default function Author({
+  authorId,
+  date,
+  readTime,
+  className,
+}: AuthorProps) {
+  const { author, isLoading, error } = useAuthor(authorId);
   const [postInfo, setPostInfo] = useState<string | undefined>();
 
   useMemo(() => {
@@ -34,8 +40,11 @@ export default function Author({ date, readTime, className }: AuthorProps) {
       <img
         className="rounded-full w-10 h-10"
         data-testid="author-image"
-        src={author}
-        alt=""
+        src={
+          author?.avatarUrl ||
+          "https://i.pinimg.com/custom_covers/222x/85498161615209203_1636332751.jpg"
+        }
+        alt={author?.name}
       />
       <div
         className={`text-${
@@ -43,7 +52,7 @@ export default function Author({ date, readTime, className }: AuthorProps) {
         } leading-snug flex flex-col justify-center`}
       >
         <div className="roboto tracking-wide" data-testid="author-name">
-          podfog
+          {!isLoading && !error && author?.name}
         </div>
         {postInfo && (
           <div className="opacity-50 font-light" data-testid="post-info">

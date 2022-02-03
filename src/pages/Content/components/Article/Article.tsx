@@ -12,13 +12,25 @@ export default function Article({ id }: ArticleProps) {
     <div data-testid="article">
       {article && !error && !isLoading && (
         <div data-testid="content">
-          {article?.text.split("\n").map((line, index) => (
-            <div key={index}>
-              {line}
-              <br />
-              <br />
-            </div>
-          ))}
+          {article?.blocks?.map((block, index) => {
+            if (block.blockType === "paragraph") {
+              return (
+                <div key={index}>
+                  {block.text}
+                  <br />
+                  <br />
+                </div>
+              );
+            } else if (block.blockType === "video") {
+              return (
+                <div key={index}>
+                  <video controls src={block.url} width="100%" height="100%" />
+                  <br />
+                  <br />
+                </div>
+              );
+            }
+          })}
         </div>
       )}
     </div>
