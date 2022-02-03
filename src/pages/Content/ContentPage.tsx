@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import ShowOnScroll from "@/animations/ShowOnScroll/ShowOnScroll";
 import Author from "@/components/Author/Author";
 import Card from "@/components/Card/Card";
+import Loader from "@/components/Loader/Loader";
 import useContentList from "@/hooks/use-content-list";
 import Article from "@/pages/Content/components/Article/Article";
 import Podcast from "@/pages/Content/components/Podcast/Podcast";
@@ -44,7 +45,11 @@ export default function ContentPage() {
 
   return (
     <div data-testid="content-page">
-      {isLoading && <div data-testid="loading">Loading...</div>}
+      {isLoading && (
+        <div data-testid="loading">
+          <Loader className="my-56" />
+        </div>
+      )}
       {error && <div data-testid="error">Error: {error.message}</div>}
       {content && !error && !isLoading && (
         <Card className="overflow-hidden">
@@ -55,7 +60,7 @@ export default function ContentPage() {
               className="w-full h-52 lg:h-96 object-cover object-top"
             />
           </div>
-          <div className="mx-12 lg:mx-24 2xl:mx-72 transform -translate-y-4">
+          <div className="mx-6 sm:mx-12 lg:mx-24 2xl:mx-72 transform -translate-y-4">
             <div className="flex flex-col gap-y-4 mb-12">
               {content?.authorId && (
                 <Author
@@ -72,11 +77,16 @@ export default function ContentPage() {
                 {content.title}
               </div>
             </div>
-            <div className="my-12">{getContent()}</div>
+            <div className="md:my-12">{getContent()}</div>
           </div>
-          <ShowOnScroll scrollPercentToShowAt={0.05}>
-            <TipButton className="absolute mx-auto left-0 right-0 bottom-4" />
-          </ShowOnScroll>
+          {content?.authorId && (
+            <ShowOnScroll scrollPercentToShowAt={0.05}>
+              <TipButton
+                authorId={content?.authorId}
+                className="absolute mx-auto left-0 right-0 bottom-4"
+              />
+            </ShowOnScroll>
+          )}
         </Card>
       )}
     </div>

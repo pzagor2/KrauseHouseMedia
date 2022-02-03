@@ -1,16 +1,20 @@
+import axios from "axios";
 import { useMemo, useState } from "react";
 
-import sampleContent from "@/sample-data/sample-content-list";
 import Content from "@/types/content";
 import Error from "@/types/error";
 import Result from "@/types/result";
-import axios from "axios";
 
 const getContentList = async (): Promise<Content[]> => {
-  const content = await axios.get(
+  const contentList = await axios.get(
     `https://us-central1-krause-media-dev.cloudfunctions.net/mediaApi/content`
   );
-  return content.data;
+  return contentList.data.map((content: Content) => {
+    return {
+      ...content,
+      date: new Date(content.date ?? ""),
+    };
+  });
 };
 
 type ContentListResult = {
