@@ -4,12 +4,17 @@ import "./main.css";
 import { StrictMode } from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
-import { logEvent } from "firebase/analytics";
+import { getAnalytics } from "firebase/analytics";
 
 import App from "./App";
-import analytics from "./analytics";
+import firebaseConfig from "./firebaseConfig";
+import { initializeApp } from "firebase/app";
 
-!import.meta.env.VITE_DEBUG && logEvent(analytics, "ping");
+// only use analytics if not on localhost
+if (location.hostname != "localhost") {
+  initializeApp(firebaseConfig);
+  getAnalytics();
+}
 
 ReactDOM.render(
   <StrictMode>

@@ -1,10 +1,9 @@
+import axios from "axios";
 import { useMemo, useState } from "react";
 
-import samplePodcast from "@/sample-data/sample-podcast";
 import Error from "@/types/error";
 import Podcast from "@/types/podcast";
 import Result from "@/types/result";
-import axios from "axios";
 
 const getPodcast = async (podcastId: string): Promise<Podcast> => {
   const podcast = await axios.get(
