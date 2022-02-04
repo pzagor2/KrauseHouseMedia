@@ -5,6 +5,8 @@ import sampleContent from "@/sample-data/sample-content-list";
 import Content from "@/types/content";
 
 import HomePage from "./HomePage";
+import sampleAuthor from "@/sample-data/sample-author";
+import { useAuthorResult } from "@/hooks/use-author";
 
 let contentListResult = {
   contentList: [] as Content[],
@@ -13,6 +15,15 @@ let contentListResult = {
 } as useContentListResult;
 jest.mock("@/hooks/use-content-list", () => {
   return jest.fn(() => contentListResult);
+});
+
+const authorResult = {
+  author: sampleAuthor,
+  isLoading: false,
+  error: undefined,
+} as useAuthorResult;
+jest.mock("@/hooks/use-author", () => {
+  return jest.fn(() => authorResult);
 });
 
 describe("HomePage", () => {
