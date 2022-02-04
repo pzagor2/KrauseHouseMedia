@@ -9,7 +9,7 @@ import { logEvent } from "firebase/analytics";
 import App from "./App";
 import analytics from "./analytics";
 
-logEvent(analytics, "ping");
+!import.meta.env.VITE_DEBUG && logEvent(analytics, "ping");
 
 ReactDOM.render(
   <StrictMode>

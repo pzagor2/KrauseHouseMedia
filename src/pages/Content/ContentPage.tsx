@@ -11,16 +11,12 @@ import Podcast from "@/pages/Content/components/Podcast/Podcast";
 import TipButton from "@/pages/Content/components/TipButton/TipButton";
 import Content from "@/types/content";
 import ContentType from "@/types/content-type";
-import { logEvent } from "firebase/analytics";
-import analytics from "@/analytics";
 
 export default function ContentPage() {
   const { id } = useParams();
   const { contentList, isLoading, error } = useContentList();
 
   const [content, setContent] = useState<Content | undefined>();
-
-  logEvent(analytics, "content-page-view", { id });
 
   useEffect(() => {
     if (contentList) {
