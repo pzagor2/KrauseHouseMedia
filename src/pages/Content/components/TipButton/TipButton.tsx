@@ -43,7 +43,7 @@ export default function TipButton({ authorId, className }: TipButtonProps) {
         className={`font-semibold bg-opacity-50 hover:bg-opacity-100 ${className}`}
         onClick={onClick}
       >
-        Tip {author?.name ? author?.name : "author"} 5 $KRAUSE
+        Tip {author?.name ? author?.name : "author"} 5 MATIC
       </Button>
     </div>
   );
