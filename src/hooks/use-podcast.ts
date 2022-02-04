@@ -1,14 +1,13 @@
+import axios from "axios";
 import { useMemo, useState } from "react";
 
-import samplePodcast from "@/sample-data/sample-podcast";
 import Error from "@/types/error";
 import Podcast from "@/types/podcast";
 import Result from "@/types/result";
-import axios from "axios";
 
 const getPodcast = async (podcastId: string): Promise<Podcast> => {
   const podcast = await axios.get(
-    `https://us-central1-krause-media-dev.cloudfunctions.net/mediaApi/podcasts/${podcastId}`
+    `${import.meta.env.VITE_API_BASE_URL}/mediaApi/podcasts/${podcastId}`
   );
   return podcast.data;
 };

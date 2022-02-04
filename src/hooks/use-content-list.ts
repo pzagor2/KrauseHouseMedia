@@ -7,7 +7,7 @@ import Result from "@/types/result";
 
 const getContentList = async (): Promise<Content[]> => {
   const contentList = await axios.get(
-    `https://us-central1-krause-media-dev.cloudfunctions.net/mediaApi/content`
+    `${import.meta.env.VITE_API_BASE_URL}/mediaApi/content`
   );
   return contentList.data.map((content: Content) => {
     return {
