@@ -13,4 +13,4 @@ const getMaticContract = (signer: Signer) => {
   return contract;
 };
 
-export default getKrauseContract;
+export default getMaticContract;
