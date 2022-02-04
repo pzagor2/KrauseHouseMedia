@@ -11,7 +11,7 @@ const sendTip = async (tip: Tip): Promise<Error | undefined> => {
 
     const balance = await contract.balanceOf(tip.senderAddress);
 
-    if (balance < 1) {
+    if (balance < tip.amount) {
       return new TokenError(TokenErrorType.INSUFFICIENT_BALANCE);
     } else {
       const res = await contract.transfer(

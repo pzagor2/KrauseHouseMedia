@@ -10,14 +10,21 @@ const tip = {
   recipientAddress: "0x0",
   senderAddress: "0x0",
   signer: new MockSigner(),
+  chainId: 1,
 } as Tip;
 const mockMaticContract = {
   balanceOf: jest.fn(() => Promise.resolve(1)),
   transfer: jest.fn(() => Promise.resolve(true)),
 };
-
 jest.mock("@/contracts/getMaticContract", () => {
   return jest.fn(() => mockMaticContract);
+});
+
+const mockWeb3 = {
+  chainId: 1,
+};
+jest.mock("@/hooks/use-web3", () => {
+  return jest.fn(() => mockWeb3);
 });
 
 // cleanup
