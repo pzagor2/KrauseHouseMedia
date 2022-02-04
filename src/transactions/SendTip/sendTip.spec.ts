@@ -11,13 +11,13 @@ const tip = {
   senderAddress: "0x0",
   signer: new MockSigner(),
 } as Tip;
-const mockKrauseContract = {
+const mockMaticContract = {
   balanceOf: jest.fn(() => Promise.resolve(1)),
   transfer: jest.fn(() => Promise.resolve(true)),
 };
 
-jest.mock("@/contracts/getKrauseContract", () => {
-  return jest.fn(() => mockKrauseContract);
+jest.mock("@/contracts/getMaticContract", () => {
+  return jest.fn(() => mockMaticContract);
 });
 
 // cleanup
@@ -28,38 +28,38 @@ afterEach(() => {
 // tests
 describe("sendTip", () => {
   it("should call contract transfer", async () => {
-    givenKrauseTokens(1);
+    givenMaticTokens(1);
     const error = await sendTip(tip);
 
-    expect(mockKrauseContract.transfer).toHaveBeenCalledTimes(1);
+    expect(mockMaticContract.transfer).toHaveBeenCalledTimes(1);
     expect(error).toBeUndefined();
   });
 
   it("given no tokens, should not call contract transfer", async () => {
-    givenKrauseTokens(0);
+    givenMaticTokens(0);
     const error = await sendTip(tip);
 
-    expect(mockKrauseContract.balanceOf).toHaveBeenCalledTimes(1);
-    expect(mockKrauseContract.transfer).not.toHaveBeenCalled();
+    expect(mockMaticContract.balanceOf).toHaveBeenCalledTimes(1);
+    expect(mockMaticContract.transfer).not.toHaveBeenCalled();
     expect(error?.message).toBe(TokenErrorType.INSUFFICIENT_BALANCE);
   });
 
   it("given transfer fails, should return error", async () => {
-    givenKrauseTokens(1);
+    givenMaticTokens(1);
     givenTransferResult(false);
     const error = await sendTip(tip);
 
-    expect(mockKrauseContract.balanceOf).toHaveBeenCalledTimes(1);
-    expect(mockKrauseContract.transfer).toHaveBeenCalledTimes(1);
+    expect(mockMaticContract.balanceOf).toHaveBeenCalledTimes(1);
+    expect(mockMaticContract.transfer).toHaveBeenCalledTimes(1);
     expect(error?.message).toBe(TokenErrorType.TRANSFER_FAILED);
   });
 });
 
 // helpers
-const givenKrauseTokens = (amount: number) => {
-  mockKrauseContract.balanceOf = jest.fn(() => Promise.resolve(amount));
+const givenMaticTokens = (amount: number) => {
+  mockMaticContract.balanceOf = jest.fn(() => Promise.resolve(amount));
 };
 
 const givenTransferResult = (result: boolean) => {
-  mockKrauseContract.transfer = jest.fn(() => Promise.resolve(result));
+  mockMaticContract.transfer = jest.fn(() => Promise.resolve(result));
 };
