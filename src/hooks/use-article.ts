@@ -7,7 +7,7 @@ import Result from "@/types/result";
 
 const getArticle = async (articleId: string): Promise<Article> => {
   const article = await axios.get(
-    `https://us-central1-krause-media-dev.cloudfunctions.net/mediaApi/articles/${articleId}`
+    `${import.meta.env.VITE_API_BASE_URL}/mediaApi/articles/${articleId}`
   );
   return article.data;
 };

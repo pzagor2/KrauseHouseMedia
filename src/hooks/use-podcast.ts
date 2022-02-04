@@ -7,7 +7,7 @@ import Result from "@/types/result";
 
 const getPodcast = async (podcastId: string): Promise<Podcast> => {
   const podcast = await axios.get(
-    `https://us-central1-krause-media-dev.cloudfunctions.net/mediaApi/podcasts/${podcastId}`
+    `${import.meta.env.VITE_API_BASE_URL}/mediaApi/podcasts/${podcastId}`
   );
   return podcast.data;
 };
