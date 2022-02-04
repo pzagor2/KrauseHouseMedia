@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "krause-media-dev"
-  }
+    "default": "krause-media-dev",
+    "production": "krause-media",
+    "development": "krause-media-dev"
+  },
+  "targets": {}
 }

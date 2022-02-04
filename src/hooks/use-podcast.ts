@@ -4,10 +4,13 @@ import samplePodcast from "@/sample-data/sample-podcast";
 import Error from "@/types/error";
 import Podcast from "@/types/podcast";
 import Result from "@/types/result";
+import axios from "axios";
 
 const getPodcast = async (podcastId: string): Promise<Podcast> => {
-  console.log("Getting podcast", podcastId);
-  return samplePodcast;
+  const podcast = await axios.get(
+    `https://us-central1-krause-media-dev.cloudfunctions.net/mediaApi/podcasts/${podcastId}`
+  );
+  return podcast.data;
 };
 
 type PodcastResult = {
