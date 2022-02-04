@@ -1,7 +1,18 @@
-import Content from "./content";
+enum BlockType {
+  Header = "header",
+  Paragraph = "paragraph",
+  Video = "video",
+}
 
-type Article = Content & {
-  text: string;
+interface ArticleBlock {
+  blockType: BlockType;
+  text?: string;
+  url?: string;
+}
+
+type Article = {
+  id: string;
+  blocks: ArticleBlock[];
 };
 
 export default Article;

@@ -1,13 +1,15 @@
+import axios from "axios";
 import { useMemo, useState } from "react";
 
-import sampleArticle from "@/sample-data/sample-article";
 import Article from "@/types/article";
 import Error from "@/types/error";
 import Result from "@/types/result";
 
 const getArticle = async (articleId: string): Promise<Article> => {
-  console.log("Getting article", articleId);
-  return sampleArticle;
+  const article = await axios.get(
+    `https://us-central1-krause-media-dev.cloudfunctions.net/mediaApi/articles/${articleId}`
+  );
+  return article.data;
 };
 
 type ArticleResult = {

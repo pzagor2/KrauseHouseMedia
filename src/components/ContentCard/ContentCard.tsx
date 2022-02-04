@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 import Content from "@/types/content";
 
 import Author from "../Author/Author";
@@ -9,8 +11,13 @@ interface ContentCardProps {
 
 export default function ContentCard({ content }: ContentCardProps) {
   return (
-    <div data-testid="content-card">
-      <Card className="flex-1 overflow-hidden shadow-lg my-4 min-w-96">
+    <motion.div
+      data-testid="content-card"
+      whileHover={{
+        scale: 1.01,
+      }}
+    >
+      <Card className="flex-1 overflow-hidden shadow-lg min-w-96 hover:bg-opacity-30 transition">
         <div className="h-50 overflow-hidden">
           <img
             src={content.imageUrl}
@@ -37,9 +44,15 @@ export default function ContentCard({ content }: ContentCardProps) {
               {content.description}
             </div>
           </div>
-          <Author authorId="" readTime={content.readTime} date={content.date} />
+          {content.authorId && (
+            <Author
+              authorId={content.authorId}
+              readTime={content.readTime}
+              date={content.date}
+            />
+          )}
         </div>
       </Card>
-    </div>
+    </motion.div>
   );
 }

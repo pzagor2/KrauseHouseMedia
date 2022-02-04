@@ -1,0 +1,34 @@
+name: merge develop
+"on":
+  push:
+    branches:
+      - develop
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    environment: Development
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: yarn install --ignore-scripts
+
+      - name: Make envfile
+        uses: SpicyPizza/create-envfile@v1
+        with:
+          envkey_VITE_API_KEY: "AIzaSyCy-NB4SSzKtJLxG7YKWDTibRrDjdEEsxQ"
+          envkey_VITE_AUTH_DOMAIN: "krause-media-dev.firebaseapp.com"
+          envkey_VITE_PROJECT_ID: "krause-media-dev"
+          envkey_VITE_STORAGE_BUCKET: "krause-media-dev.appspot.com"
+          envkey_VITE_MESSAGING_SENDER_ID: "1014641510657"
+          envkey_VITE_APP_ID: "1:1014641510657:web:d09d1bdbe9e529967c3300"
+          envkey_VITE_MEASUREMENT_ID: "G-JKMGD6MN20"
+          file_name: .env
+
+      - run: yarn run build
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: "${{ secrets.GITHUB_TOKEN }}"
+          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_KRAUSE_MEDIA_DEV }}"
+          channelId: live
+          projectId: krause-media-dev
