@@ -7,7 +7,7 @@ import Result from "@/types/result";
 
 const getAuthor = async (authorId: string): Promise<Author> => {
   const author = await axios.get(
-    `https://us-central1-krause-media-dev.cloudfunctions.net/mediaApi/authors/${authorId}`
+    `${import.meta.env.VITE_API_BASE_URL}/mediaApi/authors/${authorId}`
   );
   return author.data;
 };

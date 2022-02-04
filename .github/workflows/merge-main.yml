@@ -23,6 +23,7 @@ jobs:
           envkey_VITE_MESSAGING_SENDER_ID: "177705104739"
           envkey_VITE_APP_ID: "1:177705104739:web:0ef5a73b806e4a52e20f56"
           envkey_VITE_MEASUREMENT_ID: "G-R49FQ0LX9L"
+          envkey_VITE_API_BASE_URL: "https://us-central1-krause-media.cloudfunctions.net"
           file_name: .env
 
       - run: yarn run build

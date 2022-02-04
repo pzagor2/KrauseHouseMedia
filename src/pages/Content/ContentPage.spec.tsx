@@ -11,6 +11,8 @@ import Content from "@/types/content";
 import ContentType from "@/types/content-type";
 
 import ContentPage from "./ContentPage";
+import samplePodcast from "@/sample-data/sample-podcast";
+import { usePodcastResult } from "@/hooks/use-podcast";
 
 let routeId = "1";
 jest.mock("react-router-dom", () => ({
@@ -46,6 +48,15 @@ const articleResult = {
 } as useArticleResult;
 jest.mock("@/hooks/use-article", () => {
   return jest.fn(() => articleResult);
+});
+
+const podcastResult = {
+  podcast: samplePodcast,
+  isLoading: false,
+  error: undefined,
+} as usePodcastResult;
+jest.mock("@/hooks/use-podcast", () => {
+  return jest.fn(() => podcastResult);
 });
 
 describe("ContentPage", () => {
