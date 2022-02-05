@@ -18,6 +18,7 @@ export default function Article({ id }: ArticleProps) {
                 <div key={index}>
                   {block.text ?? ""}
                   <br />
+                  <br />
                 </div>
               );
             } else if (block.blockType === "video") {
