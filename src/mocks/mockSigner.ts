@@ -1,4 +1,9 @@
+import {
+  TransactionRequest,
+  TransactionResponse,
+} from "@ethersproject/abstract-provider";
 import { Signer } from "ethers";
+import { Deferrable } from "ethers/lib/utils";
 
 class MockSigner extends Signer {
   connect() {
@@ -20,6 +25,14 @@ class MockSigner extends Signer {
   signTransaction(): Promise<string> {
     return new Promise<string>(resolve => {
       resolve("0x0");
+    });
+  }
+
+  sendTransaction(
+    transaction: Deferrable<TransactionRequest>
+  ): Promise<TransactionResponse> {
+    return new Promise<TransactionResponse>(resolve => {
+      resolve({} as unknown as TransactionResponse);
     });
   }
 }
