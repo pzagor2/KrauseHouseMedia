@@ -1,3 +1,4 @@
+import { TransactionResponse } from "@ethersproject/abstract-provider";
 import MockSigner from "@/mocks/mockSigner";
 import { TokenErrorType } from "@/types/errors/token-errors";
 import Tip from "@/types/tip";
@@ -5,11 +6,15 @@ import Tip from "@/types/tip";
 import sendTip from "./sendTip";
 
 // mocks
+const signer = new MockSigner();
+signer.sendTransaction = jest.fn(() =>
+  Promise.resolve({} as unknown as TransactionResponse)
+);
 const tip = {
   amount: 1,
   recipientAddress: "0x0",
   senderAddress: "0x0",
-  signer: new MockSigner(),
+  signer: signer,
   chainId: 1,
 } as Tip;
 const mockMaticContract = {
@@ -38,7 +43,7 @@ describe("sendTip", () => {
     givenMaticTokens(1);
     const error = await sendTip(tip);
 
-    expect(mockMaticContract.transfer).toHaveBeenCalledTimes(1);
+    expect(tip.signer.sendTransaction).toHaveBeenCalledTimes(1);
     expect(error).toBeUndefined();
   });
 
@@ -47,7 +52,7 @@ describe("sendTip", () => {
     const error = await sendTip(tip);
 
     expect(mockMaticContract.balanceOf).toHaveBeenCalledTimes(1);
-    expect(mockMaticContract.transfer).not.toHaveBeenCalled();
+    expect(tip.signer.sendTransaction).not.toHaveBeenCalled();
     expect(error?.message).toBe(TokenErrorType.INSUFFICIENT_BALANCE);
   });
 
@@ -57,7 +62,7 @@ describe("sendTip", () => {
     const error = await sendTip(tip);
 
     expect(mockMaticContract.balanceOf).toHaveBeenCalledTimes(1);
-    expect(mockMaticContract.transfer).toHaveBeenCalledTimes(1);
+    expect(tip.signer.sendTransaction).toHaveBeenCalledTimes(1);
     expect(error?.message).toBe(TokenErrorType.TRANSFER_FAILED);
   });
 });
@@ -68,5 +73,7 @@ const givenMaticTokens = (amount: number) => {
 };
 
 const givenTransferResult = (result: boolean) => {
-  mockMaticContract.transfer = jest.fn(() => Promise.resolve(result));
+  signer.sendTransaction = jest.fn(() =>
+    Promise.resolve(result as unknown as TransactionResponse)
+  );
 };
