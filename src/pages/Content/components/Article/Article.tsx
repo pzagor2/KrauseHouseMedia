@@ -1,6 +1,5 @@
 import useArticle from "@/hooks/use-article";
 import Article from "@/types/article";
-import ReactMarkdown from "react-markdown";
 
 interface ArticleProps {
   id: string;
@@ -15,11 +14,7 @@ export default function Article({ id }: ArticleProps) {
         <div data-testid="content">
           {article?.blocks?.map((block, index) => {
             if (block.blockType === "paragraph") {
-              return (
-                <div key={index}>
-                  <ReactMarkdown>{block.text ?? ""}</ReactMarkdown>
-                </div>
-              );
+              return <div key={index}>{block.text ?? ""}</div>;
             } else if (block.blockType === "video") {
               return (
                 <div key={index}>
