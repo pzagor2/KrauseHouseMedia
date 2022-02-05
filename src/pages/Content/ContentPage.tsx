@@ -84,11 +84,10 @@ export default function ContentPage() {
             <div className="md:my-12">{getContent()}</div>
           </div>
           {content?.authorId && (
-            <ShowOnScroll scrollPercentToShowAt={0.05}>
-              <TipButton
-                authorId={content?.authorId}
-                className="absolute mx-auto left-0 right-0 bottom-4"
-              />
+            <ShowOnScroll scrollPercentToShowAt={0.01}>
+              <div className="flex justify-center items-center absolute mx-auto bottom-4 left-0 right-0">
+                <TipButton authorId={content?.authorId} />
+              </div>
             </ShowOnScroll>
           )}
         </Card>
