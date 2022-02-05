@@ -20,15 +20,17 @@ export default function HomePage() {
       )}
       {!isLoading && !error && contentList && (
         <div className="flex flex-row w-full grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-6">
-          {contentList.map(content => (
-            <Link
-              key={content.id}
-              to={`/${content.id}`}
-              className="no-underline decoration-current"
-            >
-              <ContentCard content={content} />
-            </Link>
-          ))}
+          {contentList
+            .sort((a, b) => (b.date?.getTime() ?? 0) - (a.date?.getTime() ?? 0))
+            .map(content => (
+              <Link
+                key={content.id}
+                to={`/${content.id}`}
+                className="no-underline decoration-current"
+              >
+                <ContentCard content={content} />
+              </Link>
+            ))}
         </div>
       )}
     </div>
