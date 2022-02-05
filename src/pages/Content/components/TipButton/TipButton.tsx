@@ -26,7 +26,7 @@ export default function TipButton({ authorId, className }: TipButtonProps) {
         signer: provider.getSigner(),
         senderAddress: address,
         recipientAddress: author?.ethAddress,
-        amount: 0.1,
+        amount: 5,
         chainId: 137,
       } as Tip;
       await handleTransaction(sendTip, tip, {
