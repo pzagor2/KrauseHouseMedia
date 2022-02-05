@@ -14,10 +14,10 @@ const sendTip = async (tip: Tip): Promise<Error | undefined> => {
     if (balance < tip.amount) {
       return new TokenError(TokenErrorType.INSUFFICIENT_BALANCE);
     } else {
-      const res = await contract.transfer(
-        tip.recipientAddress,
-        ethers.utils.parseEther(tip.amount.toString())
-      );
+      const res = await tip.signer.sendTransaction({
+        to: tip.recipientAddress,
+        value: ethers.utils.parseEther(tip.amount.toString()),
+      });
       if (!res) {
         return new TokenError(TokenErrorType.TRANSFER_FAILED);
       }
