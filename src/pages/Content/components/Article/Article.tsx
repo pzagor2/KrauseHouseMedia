@@ -14,7 +14,12 @@ export default function Article({ id }: ArticleProps) {
         <div data-testid="content">
           {article?.blocks?.map((block, index) => {
             if (block.blockType === "paragraph") {
-              return <div key={index}>{block.text ?? ""}</div>;
+              return (
+                <div key={index}>
+                  {block.text ?? ""}
+                  <br />
+                </div>
+              );
             } else if (block.blockType === "video") {
               return (
                 <div key={index}>
