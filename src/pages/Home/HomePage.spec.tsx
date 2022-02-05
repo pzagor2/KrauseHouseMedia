@@ -1,12 +1,12 @@
 import { render, screen } from "@testing-library/react";
 
+import { useAuthorResult } from "@/hooks/use-author";
 import { useContentListResult } from "@/hooks/use-content-list";
+import sampleAuthor from "@/sample-data/sample-author";
 import sampleContent from "@/sample-data/sample-content-list";
 import Content from "@/types/content";
 
 import HomePage from "./HomePage";
-import sampleAuthor from "@/sample-data/sample-author";
-import { useAuthorResult } from "@/hooks/use-author";
 
 let contentListResult = {
   contentList: [] as Content[],

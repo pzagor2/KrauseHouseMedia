@@ -3,16 +3,16 @@ import { render, screen } from "@testing-library/react";
 import { useArticleResult } from "@/hooks/use-article";
 import { useAuthorResult } from "@/hooks/use-author";
 import { useContentListResult } from "@/hooks/use-content-list";
+import { usePodcastResult } from "@/hooks/use-podcast";
 import ThirdWebProvider from "@/providers/ThirdWebProvider";
 import sampleArticle from "@/sample-data/sample-article";
 import sampleAuthor from "@/sample-data/sample-author";
 import sampleContent from "@/sample-data/sample-content-list";
+import samplePodcast from "@/sample-data/sample-podcast";
 import Content from "@/types/content";
 import ContentType from "@/types/content-type";
 
 import ContentPage from "./ContentPage";
-import samplePodcast from "@/sample-data/sample-podcast";
-import { usePodcastResult } from "@/hooks/use-podcast";
 
 let routeId = "1";
 jest.mock("react-router-dom", () => ({

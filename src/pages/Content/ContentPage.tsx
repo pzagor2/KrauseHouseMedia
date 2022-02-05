@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import { useParams } from "react-router-dom";
 
 import ShowOnScroll from "@/animations/ShowOnScroll/ShowOnScroll";
@@ -45,6 +46,9 @@ export default function ContentPage() {
 
   return (
     <div data-testid="content-page">
+      <Helmet>
+        <title>{content?.title}</title>
+      </Helmet>
       {isLoading && (
         <div data-testid="loading">
           <Loader className="my-56" />
