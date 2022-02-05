@@ -18,7 +18,7 @@ export default function TipButton({ authorId, className }: TipButtonProps) {
 
   const onClick = async () => {
     if (!address || !provider) {
-      toast.warning("Please connect to metamask!");
+      toast.warning("Please connect your wallet!");
     } else if (chainId !== 137) {
       toast.warning("Gas fees suck! Connect to Polygon to tip.");
     } else {
