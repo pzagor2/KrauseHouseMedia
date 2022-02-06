@@ -17,7 +17,7 @@ export default function ContentCard({ content }: ContentCardProps) {
         scale: 1.01,
       }}
     >
-      <Card className="flex-1 overflow-hidden shadow-lg min-w-96 hover:bg-opacity-30 transition">
+      <Card className="flex-1 overflow-hidden shadow-lg min-w-48 hover:bg-opacity-30 transition">
         <div className="h-50 overflow-hidden">
           <img
             src={content.imageUrl}
