@@ -14,6 +14,9 @@ const authorResult = {
 jest.mock("@/hooks/use-author", () => {
   return jest.fn(() => authorResult);
 });
+jest.mock("@/analytics", () => {
+  return null;
+});
 
 describe("TipButton", () => {
   it("should render", () => {

@@ -5,13 +5,13 @@ import ShowOnScroll from "@/animations/ShowOnScroll/ShowOnScroll";
 import Author from "@/components/Author/Author";
 import Card from "@/components/Card/Card";
 import Loader from "@/components/Loader/Loader";
+import PageHelmet from "@/components/PageHelmet/PageHelmet";
 import useContentList from "@/hooks/use-content-list";
 import Article from "@/pages/Content/components/Article/Article";
 import Podcast from "@/pages/Content/components/Podcast/Podcast";
 import TipButton from "@/pages/Content/components/TipButton/TipButton";
 import Content from "@/types/content";
 import ContentType from "@/types/content-type";
-import PageHelmet from "@/components/PageHelmet/PageHelmet";
 
 export default function ContentPage() {
   const { id } = useParams();
@@ -46,7 +46,7 @@ export default function ContentPage() {
 
   return (
     <div data-testid="content-page">
-      <PageHelmet title={content?.title} />
+      <PageHelmet title={content?.title} pageType={content?.contentType} />
       {isLoading && (
         <div data-testid="loading">
           <Loader className="my-56" />
