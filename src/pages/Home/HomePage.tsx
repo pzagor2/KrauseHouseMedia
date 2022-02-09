@@ -3,16 +3,14 @@ import { Link } from "react-router-dom";
 import ContentCard from "@/components/ContentCard/ContentCard";
 import Loader from "@/components/Loader/Loader";
 import useContentList from "@/hooks/use-content-list";
-import { Helmet } from "react-helmet";
+import PageHelmet from "@/components/PageHelmet/PageHelmet";
 
 export default function HomePage() {
   const { contentList, isLoading, error } = useContentList();
 
   return (
     <div data-testid="home-page">
-      <Helmet>
-        <title>Krause Analytics</title>
-      </Helmet>
+      <PageHelmet title="Krause Analytics" />
       {isLoading && !error && (
         <div data-testid="loading">
           <Loader className="my-56" />

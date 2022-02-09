@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import { useParams } from "react-router-dom";
 
 import ShowOnScroll from "@/animations/ShowOnScroll/ShowOnScroll";
@@ -12,6 +12,7 @@ import Podcast from "@/pages/Content/components/Podcast/Podcast";
 import TipButton from "@/pages/Content/components/TipButton/TipButton";
 import Content from "@/types/content";
 import ContentType from "@/types/content-type";
+import PageHelmet from "@/components/PageHelmet/PageHelmet";
 
 export default function ContentPage() {
   const { id } = useParams();
@@ -46,9 +47,7 @@ export default function ContentPage() {
 
   return (
     <div data-testid="content-page">
-      <Helmet>
-        <title>{content?.title}</title>
-      </Helmet>
+      <PageHelmet title={content?.title} />
       {isLoading && (
         <div data-testid="loading">
           <Loader className="my-56" />
