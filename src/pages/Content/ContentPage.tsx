@@ -62,7 +62,7 @@ export default function ContentPage() {
               className="w-full h-52 lg:h-96 object-cover object-top"
             />
           </div>
-          <div className="mx-6 sm:mx-12 lg:mx-24 2xl:mx-72 transform -translate-y-4">
+          <div className="mx-6 sm:mx-12 leading-relaxed text-lg transform -translate-y-4">
             <div className="flex flex-col gap-y-4 mb-12">
               {content?.authorId && (
                 <Author
@@ -79,7 +79,7 @@ export default function ContentPage() {
                 {content.title}
               </div>
             </div>
-            <div className="md:my-12">{getContent()}</div>
+            <div className="md:my-12 lg:mx-40 2xl:mx-72">{getContent()}</div>
           </div>
           {content?.authorId && (
             <ShowOnScroll scrollPercentToShowAt={0.01}>
