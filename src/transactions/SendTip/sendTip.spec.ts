@@ -1,4 +1,5 @@
 import { TransactionResponse } from "@ethersproject/abstract-provider";
+
 import MockSigner from "@/mocks/mockSigner";
 import { TokenErrorType } from "@/types/errors/token-errors";
 import Tip from "@/types/tip";
@@ -23,6 +24,9 @@ const mockMaticContract = {
 };
 jest.mock("@/contracts/getMaticContract", () => {
   return jest.fn(() => mockMaticContract);
+});
+jest.mock("@/analytics", () => {
+  return null;
 });
 
 const mockWeb3 = {
