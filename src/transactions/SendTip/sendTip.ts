@@ -1,5 +1,7 @@
 import { ethers } from "ethers";
+import { logEvent } from "firebase/analytics";
 
+import analytics from "@/analytics";
 import getMaticContract from "@/contracts/getMaticContract";
 import Error from "@/types/error";
 import TokenError, { TokenErrorType } from "@/types/errors/token-errors";
@@ -20,6 +22,9 @@ const sendTip = async (tip: Tip): Promise<Error | undefined> => {
       });
       if (!res) {
         return new TokenError(TokenErrorType.TRANSFER_FAILED);
+      }
+      if (analytics) {
+        logEvent(analytics, "tip", { recipient: tip.recipientAddress });
       }
     }
   } catch (err) {

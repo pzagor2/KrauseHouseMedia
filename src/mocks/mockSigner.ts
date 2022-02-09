@@ -29,6 +29,7 @@ class MockSigner extends Signer {
   }
 
   sendTransaction(
+    //eslint-disable-next-line @typescript-eslint/no-unused-vars
     transaction: Deferrable<TransactionRequest>
   ): Promise<TransactionResponse> {
     return new Promise<TransactionResponse>(resolve => {

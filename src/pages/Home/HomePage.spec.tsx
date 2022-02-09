@@ -16,6 +16,9 @@ let contentListResult = {
 jest.mock("@/hooks/use-content-list", () => {
   return jest.fn(() => contentListResult);
 });
+jest.mock("@/analytics", () => {
+  return null;
+});
 
 const authorResult = {
   author: sampleAuthor,
