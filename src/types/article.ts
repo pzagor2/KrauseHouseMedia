@@ -1,7 +1,8 @@
-enum BlockType {
+export enum BlockType {
   Header = "header",
   Paragraph = "paragraph",
   Video = "video",
+  Break = "break",
 }
 
 interface ArticleBlock {
