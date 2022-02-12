@@ -3,6 +3,8 @@ export enum BlockType {
   Paragraph = "paragraph",
   Video = "video",
   Break = "break",
+  Line = "line",
+  Space = "space",
 }
 
 interface ArticleBlock {
