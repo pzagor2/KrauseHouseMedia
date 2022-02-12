@@ -36,7 +36,11 @@ export default function Article({ id }: ArticleProps) {
                 </div>
               );
             } else if (block.blockType == BlockType.Break) {
-              return <hr />;
+              return <hr key={index} />;
+            } else if (block.blockType == BlockType.Space) {
+              return <div key={index} className="mt-2"></div>;
+            } else if (block.blockType == BlockType.Line) {
+              return <div key={index}>{block.text}</div>;
             }
           })}
         </div>
