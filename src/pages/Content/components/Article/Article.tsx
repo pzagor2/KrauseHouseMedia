@@ -36,9 +36,9 @@ export default function Article({ id }: ArticleProps) {
                 </div>
               );
             } else if (block.blockType == BlockType.Break) {
-              return <hr key={index} />;
+              return <hr key={index} className="my-2" />;
             } else if (block.blockType == BlockType.Space) {
-              return <div key={index} className="mt-2"></div>;
+              return <div key={index} className="mt-4"></div>;
             } else if (block.blockType == BlockType.Line) {
               return <div key={index}>{block.text}</div>;
             }
