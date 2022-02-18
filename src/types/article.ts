@@ -5,6 +5,7 @@ export enum BlockType {
   Break = "break",
   Line = "line",
   Space = "space",
+  Image = "image",
 }
 
 interface ArticleBlock {

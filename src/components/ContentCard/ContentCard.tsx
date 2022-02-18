@@ -18,7 +18,7 @@ export default function ContentCard({ content }: ContentCardProps) {
       }}
     >
       <Card className="flex-1 overflow-hidden shadow-lg min-w-48 hover:bg-opacity-30 transition">
-        <div className="h-50 overflow-hidden">
+        <div className="h-25 sm:h-50 overflow-hidden">
           <img
             src={content.imageUrl}
             alt={content.title}
@@ -28,11 +28,11 @@ export default function ContentCard({ content }: ContentCardProps) {
         </div>
         <div className="p-6 min-h-84 flex flex-col justify-between gap-y-6">
           <div className="flex flex-col gap-y-2">
-            <div className="capitalize text-sm opacity-50">
+            <div className="text-center sm:text-left capitalize text-sm opacity-50">
               {content.contentType}
             </div>
             <div
-              className="text-2xl font-semibold leading-tight roboto tracking-wide"
+              className="text-center sm:text-left text-2xl font-semibold leading-tight roboto tracking-wide"
               data-testid="title"
             >
               {content.title}
