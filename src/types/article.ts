@@ -6,6 +6,7 @@ export enum BlockType {
   Line = "line",
   Space = "space",
   Image = "image",
+  YoutubeVideo = "youtubeVideo",
 }
 
 interface ArticleBlock {
