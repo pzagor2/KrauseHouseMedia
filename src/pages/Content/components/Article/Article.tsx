@@ -28,6 +28,13 @@ export default function Article({ id }: ArticleProps) {
                   <br />
                 </div>
               );
+            } else if (block.blockType === BlockType.Image) {
+              return (
+                <div key={index}>
+                  <img src={block.url} width="100%" height="100%" />
+                  <br />
+                </div>
+              );
             } else if (block.blockType === BlockType.Header) {
               return (
                 <div key={index} className="text-4xl font-semibold mb-2">
