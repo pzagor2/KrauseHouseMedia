@@ -1,3 +1,4 @@
+import Loader from "@/components/Loader/Loader";
 import useArticle from "@/hooks/use-article";
 import Article, { BlockType } from "@/types/article";
 
@@ -10,6 +11,11 @@ export default function Article({ id }: ArticleProps) {
 
   return (
     <div data-testid="article">
+      {isLoading && (
+        <div data-testid="loading">
+          <Loader className="my-56" />
+        </div>
+      )}
       {article && !error && !isLoading && (
         <div data-testid="content">
           {article?.blocks?.map((block, index) => {
@@ -25,6 +31,21 @@ export default function Article({ id }: ArticleProps) {
               return (
                 <div key={index}>
                   <video controls src={block.url} width="100%" height="100%" />
+                  <br />
+                </div>
+              );
+            } else if (block.blockType === BlockType.YoutubeVideo) {
+              return (
+                <div key={index}>
+                  <iframe
+                    width="100%"
+                    height="315"
+                    src={block.url}
+                    title="YouTube video player"
+                    frameBorder="0"
+                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
                   <br />
                 </div>
               );

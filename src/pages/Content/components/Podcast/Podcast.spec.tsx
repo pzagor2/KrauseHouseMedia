@@ -5,16 +5,32 @@ import samplePodcast from "@/sample-data/sample-podcast";
 
 import Podcast from "./Podcast";
 
-const podcastResult = {
-  podcast: samplePodcast,
-  isLoading: false,
-  error: undefined,
-} as usePodcastResult;
+let podcastResult: usePodcastResult;
 jest.mock("@/hooks/use-podcast", () => {
   return jest.fn(() => podcastResult);
 });
 
 describe("Podcast", () => {
+  beforeEach(() => {
+    podcastResult = {
+      podcast: samplePodcast,
+      isLoading: false,
+      error: undefined,
+    } as usePodcastResult;
+  });
+
+  it("should render loader while loading", () => {
+    podcastResult.isLoading = true;
+    // arrange
+    render(<Podcast id={"1"} />);
+
+    // act
+    const loaderObject = screen.getByTestId("loading");
+
+    // assert
+    expect(loaderObject).toBeInTheDocument();
+  });
+
   it("should render content card", () => {
     // arrange
     render(<Podcast id={"1"} />);
