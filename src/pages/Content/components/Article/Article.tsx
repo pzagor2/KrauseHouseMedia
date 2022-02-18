@@ -1,3 +1,4 @@
+import Loader from "@/components/Loader/Loader";
 import useArticle from "@/hooks/use-article";
 import Article, { BlockType } from "@/types/article";
 
@@ -10,6 +11,11 @@ export default function Article({ id }: ArticleProps) {
 
   return (
     <div data-testid="article">
+      {isLoading && (
+        <div data-testid="loading">
+          <Loader className="my-56" />
+        </div>
+      )}
       {article && !error && !isLoading && (
         <div data-testid="content">
           {article?.blocks?.map((block, index) => {
