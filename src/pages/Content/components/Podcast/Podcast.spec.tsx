@@ -52,4 +52,26 @@ describe("Podcast", () => {
     // assert
     expect(content).toBeInTheDocument();
   });
+
+  it("should render Apple link", () => {
+    // arrange
+    render(<Podcast id={"42"} />);
+
+    // act
+    const button = screen.getByRole("link", { name: "Apple" });
+
+    //assert
+    expect(button).toBeInTheDocument();
+  });
+
+  it("should render Spotify link", () => {
+    // arrange
+    render(<Podcast id={"42"} />);
+
+    // act
+    const button = screen.getByRole("link", { name: "Spotify" });
+
+    //assert
+    expect(button).toBeInTheDocument();
+  });
 });

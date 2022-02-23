@@ -18,14 +18,8 @@ export default function Podcast({ id }: PodcastProps) {
       )}
       {podcast && !error && !isLoading && (
         <div data-testid="content" className="mx-auto w-9/12">
-          <iframe
-            title="Spotify"
-            src={podcast.spotifyUrl}
-            width="100%"
-            height="152"
-            frameBorder="0"
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          ></iframe>
+          <a href="/">Spotify</a>
+          <a href="/">Apple</a>
         </div>
       )}
     </div>
