@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 
 import { usePodcastResult } from "@/hooks/use-podcast";
 import samplePodcast from "@/sample-data/sample-podcast";
@@ -73,5 +73,16 @@ describe("Podcast", () => {
 
     //assert
     expect(button).toBeInTheDocument();
+  });
+
+  it("should render Podcast episode description", () => {
+    // arrange
+    render(<Podcast id={"42"} />);
+
+    // act
+    const description = screen.getByTestId("podcast-description");
+
+    //assert
+    expect(description).toBeInTheDocument();
   });
 });

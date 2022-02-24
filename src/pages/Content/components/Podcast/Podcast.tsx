@@ -4,9 +4,10 @@ import Podcast from "@/types/podcast";
 
 interface PodcastProps {
   id: string;
+  description: string;
 }
 
-export default function Podcast({ id }: PodcastProps) {
+export default function Podcast({ id, description }: PodcastProps) {
   const { podcast, isLoading, error } = usePodcast(id);
 
   return (
@@ -18,8 +19,13 @@ export default function Podcast({ id }: PodcastProps) {
       )}
       {podcast && !error && !isLoading && (
         <div data-testid="content" className="mx-auto w-9/12">
-          <a href="/">Spotify</a>
-          <a href="/">Apple</a>
+          <div>
+            {description ? description : "Episode Description Unavailable"}
+          </div>
+          {podcast.spotifyUrl && <a href={podcast.spotifyUrl}>Spotify</a>}
+          {podcast.applePodcastsUrl && (
+            <a href={podcast.applePodcastsUrl}>Apple</a>
+          )}
         </div>
       )}
     </div>
