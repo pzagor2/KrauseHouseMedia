@@ -26,13 +26,17 @@ export default function Podcast({ id, description }: PodcastProps) {
 
           <div className="flex justify-center gap-x-5">
             {podcast.spotifyUrl && (
-              <Button onClick={() => window.open(podcast.spotifyUrl, "_blank")}>
+              <Button
+                className="bg-black"
+                onClick={() => window.open(podcast.spotifyUrl, "_blank")}
+              >
                 <img src="/Spotify_Icon_RGB_Green.png"></img>
                 Listen on Spotify
               </Button>
             )}
-            {podcast.applePodcastsUrl && (
+            {true && (
               <Button
+                className="bg-black"
                 onClick={() => window.open(podcast.applePodcastsUrl, "_blank")}
               >
                 <img src="/Apple_Podcast_Icon.png"></img>
