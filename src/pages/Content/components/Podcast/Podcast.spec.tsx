@@ -53,25 +53,25 @@ describe("Podcast", () => {
     expect(content).toBeInTheDocument();
   });
 
-  it("should render Apple link", () => {
+  it("should render Apple button", () => {
     // arrange
     render(<Podcast id={"42"} />);
 
     // act
     const button = screen.getByRole("button", {
-      name: "Open in Apple Podcasts",
+      name: "Listen on Apple Podcasts",
     });
 
     //assert
     expect(button).toBeInTheDocument();
   });
 
-  it("should render Spotify link", () => {
+  it("should render Spotify button", () => {
     // arrange
     render(<Podcast id={"42"} />);
 
     // act
-    const button = screen.getByRole("button", { name: "Open in Spotify" });
+    const button = screen.getByRole("button", { name: "Listen on Spotify" });
 
     //assert
     expect(button).toBeInTheDocument();

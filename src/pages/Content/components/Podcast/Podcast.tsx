@@ -20,21 +20,26 @@ export default function Podcast({ id, description }: PodcastProps) {
       )}
       {podcast && !error && !isLoading && (
         <div data-testid="content" className="mx-auto">
-          <div data-testid="podcast-description">
+          <div data-testid="podcast-description" className="mb-8">
             {description ? description : "Episode description unavailable"}
           </div>
-          {podcast.spotifyUrl && (
-            <Button onClick={() => window.open(podcast.spotifyUrl, "_blank")}>
-              Open in Spotify
-            </Button>
-          )}
-          {podcast.applePodcastsUrl && (
-            <Button
-              onClick={() => window.open(podcast.applePodcastsUrl, "_blank")}
-            >
-              Open in Apple Podcasts
-            </Button>
-          )}
+
+          <div className="flex justify-center gap-x-5">
+            {podcast.spotifyUrl && (
+              <Button onClick={() => window.open(podcast.spotifyUrl, "_blank")}>
+                <img src="/Spotify_Icon_RGB_Green.png"></img>
+                Listen on Spotify
+              </Button>
+            )}
+            {podcast.applePodcastsUrl && (
+              <Button
+                onClick={() => window.open(podcast.applePodcastsUrl, "_blank")}
+              >
+                <img src="/Apple_Podcast_Icon.png"></img>
+                Listen on Apple Podcasts
+              </Button>
+            )}
+          </div>
         </div>
       )}
     </div>
