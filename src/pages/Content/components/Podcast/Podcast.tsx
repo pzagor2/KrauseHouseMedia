@@ -34,7 +34,7 @@ export default function Podcast({ id, description }: PodcastProps) {
                 Listen on Spotify
               </Button>
             )}
-            {true && (
+            {podcast.applePodcastsUrl && (
               <Button
                 className="bg-black"
                 onClick={() => window.open(podcast.applePodcastsUrl, "_blank")}
