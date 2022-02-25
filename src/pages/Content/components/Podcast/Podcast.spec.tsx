@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 
 import { usePodcastResult } from "@/hooks/use-podcast";
 import samplePodcast from "@/sample-data/sample-podcast";
@@ -58,7 +58,9 @@ describe("Podcast", () => {
     render(<Podcast id={"42"} />);
 
     // act
-    const button = screen.getByRole("link", { name: "Apple" });
+    const button = screen.getByRole("button", {
+      name: "Open in Apple Podcasts",
+    });
 
     //assert
     expect(button).toBeInTheDocument();
@@ -69,7 +71,7 @@ describe("Podcast", () => {
     render(<Podcast id={"42"} />);
 
     // act
-    const button = screen.getByRole("link", { name: "Spotify" });
+    const button = screen.getByRole("button", { name: "Open in Spotify" });
 
     //assert
     expect(button).toBeInTheDocument();

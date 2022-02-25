@@ -1,10 +1,11 @@
+import Button from "@/components/Button/Button";
 import Loader from "@/components/Loader/Loader";
 import usePodcast from "@/hooks/use-podcast";
 import Podcast from "@/types/podcast";
 
 interface PodcastProps {
   id: string;
-  description: string;
+  description?: string;
 }
 
 export default function Podcast({ id, description }: PodcastProps) {
@@ -18,13 +19,21 @@ export default function Podcast({ id, description }: PodcastProps) {
         </div>
       )}
       {podcast && !error && !isLoading && (
-        <div data-testid="content" className="mx-auto w-9/12">
-          <div>
-            {description ? description : "Episode Description Unavailable"}
+        <div data-testid="content" className="mx-auto">
+          <div data-testid="podcast-description">
+            {description ? description : "Episode description unavailable"}
           </div>
-          {podcast.spotifyUrl && <a href={podcast.spotifyUrl}>Spotify</a>}
+          {podcast.spotifyUrl && (
+            <Button onClick={() => window.open(podcast.spotifyUrl, "_blank")}>
+              Open in Spotify
+            </Button>
+          )}
           {podcast.applePodcastsUrl && (
-            <a href={podcast.applePodcastsUrl}>Apple</a>
+            <Button
+              onClick={() => window.open(podcast.applePodcastsUrl, "_blank")}
+            >
+              Open in Apple Podcasts
+            </Button>
           )}
         </div>
       )}
