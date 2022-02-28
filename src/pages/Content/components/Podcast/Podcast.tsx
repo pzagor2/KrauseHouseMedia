@@ -20,9 +20,11 @@ export default function Podcast({ id, description }: PodcastProps) {
       )}
       {podcast && !error && !isLoading && (
         <div data-testid="content" className="mx-auto">
-          <div data-testid="podcast-description" className="mb-8">
-            {description ? description : "Episode description unavailable"}
-          </div>
+          {description && (
+            <div data-testid="podcast-description" className="mb-8">
+              description
+            </div>
+          )}
 
           <div className="flex justify-center gap-x-5">
             {podcast.spotifyUrl && (

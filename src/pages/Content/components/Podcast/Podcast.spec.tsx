@@ -79,7 +79,9 @@ describe("Podcast", () => {
 
   it("should render Podcast episode description", () => {
     // arrange
-    render(<Podcast id={"42"} />);
+    render(
+      <Podcast id={"42"} description={"This is a test podcast description"} />
+    );
 
     // act
     const description = screen.getByTestId("podcast-description");
