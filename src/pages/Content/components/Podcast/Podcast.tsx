@@ -1,12 +1,14 @@
+import Button from "@/components/Button/Button";
 import Loader from "@/components/Loader/Loader";
 import usePodcast from "@/hooks/use-podcast";
 import Podcast from "@/types/podcast";
 
 interface PodcastProps {
   id: string;
+  description?: string;
 }
 
-export default function Podcast({ id }: PodcastProps) {
+export default function Podcast({ id, description }: PodcastProps) {
   const { podcast, isLoading, error } = usePodcast(id);
 
   return (
@@ -17,15 +19,33 @@ export default function Podcast({ id }: PodcastProps) {
         </div>
       )}
       {podcast && !error && !isLoading && (
-        <div data-testid="content" className="mx-auto w-9/12">
-          <iframe
-            title="Spotify"
-            src={podcast.spotifyUrl}
-            width="100%"
-            height="152"
-            frameBorder="0"
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          ></iframe>
+        <div data-testid="content" className="mx-auto">
+          {description && (
+            <div data-testid="podcast-description" className="mb-8">
+              description
+            </div>
+          )}
+
+          <div className="flex justify-center gap-x-5">
+            {podcast.spotifyUrl && (
+              <Button
+                className="bg-black"
+                onClick={() => window.open(podcast.spotifyUrl, "_blank")}
+              >
+                <img src="/Spotify_Icon_RGB_Green.png"></img>
+                Listen on Spotify
+              </Button>
+            )}
+            {podcast.applePodcastsUrl && (
+              <Button
+                className="bg-black"
+                onClick={() => window.open(podcast.applePodcastsUrl, "_blank")}
+              >
+                <img src="/Apple_Podcast_Icon.png"></img>
+                Listen on Apple Podcasts
+              </Button>
+            )}
+          </div>
         </div>
       )}
     </div>
