@@ -22,7 +22,7 @@ export default function Podcast({ id, description }: PodcastProps) {
         <div data-testid="content" className="mx-auto">
           {description && (
             <div data-testid="podcast-description" className="mb-8">
-              description
+              {description}
             </div>
           )}
 
