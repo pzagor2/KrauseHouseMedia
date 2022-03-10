@@ -27,6 +27,16 @@ export default function Article({ id }: ArticleProps) {
                   <br />
                 </div>
               );
+            } else if (block.blockType == BlockType.Link) {
+              return (
+                <div key={index}>
+                  <a href={block.url} target="_blank" rel="noreferrer">
+                    {block.text ?? ""}
+                  </a>
+                  <br />
+                  <br />
+                </div>
+              );
             } else if (block.blockType === BlockType.Video) {
               return (
                 <div key={index}>
@@ -38,13 +48,13 @@ export default function Article({ id }: ArticleProps) {
               return (
                 <div key={index}>
                   <iframe
+                    allowFullScreen
                     width="100%"
                     height="315"
                     src={block.url}
                     title="YouTube video player"
                     frameBorder="0"
                     allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
                   ></iframe>
                   <br />
                 </div>
