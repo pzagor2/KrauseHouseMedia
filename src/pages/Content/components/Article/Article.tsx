@@ -31,7 +31,7 @@ export default function Article({ id }: ArticleProps) {
               return (
                 <div key={index}>
                   <a href={block.url} target="_blank" rel="noreferrer">
-                    {block.text ?? ""}
+                    {block.text ?? "Link"}
                   </a>
                   <br />
                   <br />
