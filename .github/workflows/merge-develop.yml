@@ -4,6 +4,25 @@ name: merge develop
     branches:
       - develop
 jobs:
+  version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14.x
+      - run: |
+          ls -a
+          echo '[user]' >> .git/config
+          echo '  name="gregfromstl"' >> .git/config
+          echo '  email="gregfromstl@gmail.com"' >> .git/config
+          cat .git/config
+          npm --no-git-tag-version version patch
+          git add package.json
+          git commit -m "bump patch version"
+          git push -u origin develop
+
   build_and_deploy:
     runs-on: ubuntu-latest
     environment: Development
