@@ -25,6 +25,6 @@ jobs:
         echo '  email="gregfromstl@gmail.com"' >> .git/config
         cat .git/config
         npm --no-git-tag-version version patch
-        git add package.json package-lock.json
+        git add package.json
         git commit -m "bump patch version"
         git push -u origin develop
