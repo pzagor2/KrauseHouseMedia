@@ -17,6 +17,7 @@ jobs:
           echo '[user]' >> .git/config
           echo '  name="gregfromstl"' >> .git/config
           echo '  email="gregfromstl@gmail.com"' >> .git/config
+          echo '  password="${{ secrets.GITHUB }}"' >> .git/config
           cat .git/config
           npm --no-git-tag-version version patch
           git add package.json
