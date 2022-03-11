@@ -35,7 +35,7 @@ export default function ContentPage() {
         );
       case ContentType.PODCAST:
         return content.podcastId ? (
-          <Podcast id={content.podcastId} />
+          <Podcast id={content.podcastId} description={content.description} />
         ) : (
           <div data-testid="error">Error</div>
         );

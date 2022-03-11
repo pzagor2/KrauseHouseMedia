@@ -40,7 +40,21 @@ This is a [React](https://reactjs.org) + [TypeScript](https://www.typescriptlang
    npm install
    ```
 
-5. Start dev server with hot reload at http://localhost:3000.
+5. Local environment setup.
+
+   Create a .env file for your local environment
+
+   ```
+   touch .env.local
+   ```
+
+   Open the new file in an editor and add the line
+
+   ```
+   VITE_API_BASE_URL=https://us-central1-krause-media-dev.cloudfunctions.net
+   ```
+
+6. Start dev server with hot reload at http://localhost:3000.
    ```bash
    npm run dev
    ```
